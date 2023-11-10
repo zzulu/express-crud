@@ -1,5 +1,7 @@
 import express from 'express';
 
+import postsRouter from './posts/index.js';
+
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
@@ -9,5 +11,7 @@ router.get('/', (req, res, next) => {
   }
   res.status(200).send(responseBody);
 });
+
+router.use('/posts', postsRouter);
 
 export default router;
