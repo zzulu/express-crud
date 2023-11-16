@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
     'status': 200,
     'message': 'Welcome to the beginning of nothingness.',
   }
-  res.status(200).send(responseBody);
+  return res.status(200).send(responseBody);
 });
 
 router.use('/posts', postsRouter);
