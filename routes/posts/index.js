@@ -3,29 +3,26 @@ import express from 'express';
 const router = express.Router();
 
 /**
- * GET /posts - Get all posts
- * POST /posts - Create a post
+ * GET /tasks - Get all tasks
+ * POST /tasks - Create a task
  */
 router.route('/')
   .get((req, res, next) => {
     const responseBody = [
       {
         id: 1,
-        title: 'This is title. 1',
         content: 'This is content. 1',
       },
       {
         id: 2,
-        title: 'This is title. 2',
         content: 'This is content. 2',
       }
     ]
     return res.status(200).send(responseBody);
   })
   .post((req, res, next) => {
-    const { title, content } = req.body;
+    const { content } = req.body;
     const responseBody = {
-      'title': title,
       'content': content,
     }
     return res.status(201).send(responseBody);
@@ -33,8 +30,8 @@ router.route('/')
 
 
 /**
- * PATCH /posts/:id - Update a post
- * DELETE /posts/:id - Delete a post
+ * PATCH /tasks/:id - Update a task
+ * DELETE /tasks/:id - Delete a task
  */
 router.route('/:id')
   .get((req, res, next) => {
@@ -42,7 +39,6 @@ router.route('/:id')
     // get post
     const responseBody = {
       'id': parseInt(id),
-      'title': 'This is title.',
       'content': 'This is content.',
     }
     return res.status(200).send(responseBody);
@@ -52,7 +48,6 @@ router.route('/:id')
     // update post
     const responseBody = {
       'id': parseInt(id),
-      'title': req.body.title,
       'content': req.body.content,
     }
     return res.status(200).send(responseBody);

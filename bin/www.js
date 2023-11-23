@@ -4,7 +4,7 @@ import app from '../app.js'
 import debug from 'debug';
 import http from 'http';
 
-const debugServer = debug('express-crud:server');
+const debugServer = debug('tasks:server');
 
 const normalizePort = function normalizePort(value) {
   var port = parseInt(value, 10);
